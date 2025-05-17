@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Inder', sans-serif;
+}
+/* 
+.overley {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0 ;
+    width: 100%;
+    height : 100%;
+    background-color:  rgba(0, 0, 0, 0.651);
+    z-index: 10;
+} */
+
+input:-webkit-autofill {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    font-size: 0.875rem !important; 
+    -webkit-text-fill-color: white; /* couleur du texte */
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset; /* fond blanc pour écraser le jaune par défaut */
+    transition: background-color 5000s ease-in-out 0s; /* hack pour éviter le retour au style initial */
+}
+
+.color-icons{
+    color : black !important;
+}
+
+.container-google{
+    position : absolute;
+    transform: scale(0.0000000008);
+    opacity: 0;
+}
+
+.ActiveMenu {
+    color: white;
+    background-image: linear-gradient(to right ,#00ccff , rgba(0, 142, 185, 0.527) ) ;
+    clip-path: polygon(93% 0%, 100% 50%, 93% 100%, 0% 100%, 0 50%, 0% 0%);
+}
+
+.hoverNotActive:hover {
+    transition: all .8s;
+    background-image: linear-gradient(to right ,#00ccff5b , rgba(0, 142, 185, 0.103) ) ;
+    clip-path: polygon(93% 0%, 100% 50%, 93% 100%, 0% 100%, 0 50%, 0% 0%);
+}
+
+.bgPrimaryButton{
+    display: inline-block;
+    background-image: linear-gradient(to right ,#00ccff , rgba(0, 142, 185, 0.527) ) ;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px; 
+    transition: all .5s;   
+}
+.bgPrimaryButton:hover {
+    display: inline-block;
+    background-image: linear-gradient(120deg ,#04bbe9 , rgba(1, 138, 180, 0.733) ) ;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;    
+    transition: all .5s;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%; 
+}
+
+.borderAnimateLi {
+    margin-bottom: 0px;
+}
+
+.borderAnimate {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+.borderAnimate-D {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+.borderAnimate::after { 
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+}
+
+.borderAnimate-D::after { 
+    content: "";
+    display: block ;
+    width: 0;
+    height: 2px;
+    background-color: rgb(58, 57, 57);
+}
+
+
+.borderAnimate:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+.borderAnimate-D:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+.borderAnimateOnly {
+    text-decoration: none;
+    color: white;
+}
+
+.borderAnimateOnly::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+}
+
+.borderAnimateOnly:hover::after {
+    width: 30%;
+    transition: width .3s;
+}
+
+/* 
+.bg-Primary{
+    background-image: linear-gradient(to right, rgb(139 ,92, 246) ,rgb(243, 31, 243));
+    cursor: pointer;
+}
+
+.bg-Primary-Text{
+    background: linear-gradient(to right, rgb(139, 92, 246), rgb(243, 31, 243));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.bg-Primary-Text-Hover{
+    background: linear-gradient(to right, rgb(139, 92, 246), rgb(243, 31, 243));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.bg-Primary-Text-Hover:hover{
+    background-image: linear-gradient(to right, rgb(122, 78, 224) ,rgb(211, 36, 211));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.bg-Primary:hover{
+    background-image: linear-gradient(to right, rgb(122, 78, 224) ,rgb(211, 36, 211));
+}
+
+.bg-Primary-wh{
+    background-image: linear-gradient(to right, rgb(139 92 246) ,rgb(243, 31, 243));
+}
+
+.bg-Transparent-Gray{
+    background-color: rgba(245, 245, 245, 0.822);
+}
+
+.bg-Primary-D{
+    background-image: linear-gradient(to right, yellow ,rgb(92, 204, 0));
+    cursor: pointer;
+}
+
+.bg-Primary-D-Text{
+    background-image: linear-gradient(to right, yellow ,rgb(92, 204, 0));    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.bg-Primary-D:hover{
+    background-image: linear-gradient(to right, yellow ,rgb(92, 204, 0));}
+
+.bg-Primary-D-wh{
+    background-image: linear-gradient(to right, yellow ,rgb(92, 204, 0));}
+
+.bg-Transparent-Gray{
+    background-image: linear-gradient(to right, rgb(236, 234, 100) ,rgb(247, 157, 55))}
+
+.Dropdown-Items{
+    display: none;
+}
+
+.Dropdown:hover .Dropdown-Items{
+    display: flex;
+   
+}    */
