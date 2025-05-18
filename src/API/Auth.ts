@@ -1,7 +1,17 @@
 import axios from "axios";
 import { IP } from "./IP";
-import { User } from "../Validation/Auth";
 import { ResetPasswordType } from "../Components/typescript/Auth";
+import { User } from "../Validation/Auth";
+import { addPhoneType } from "../Components/typescript/AddphoneNumber";
+
+export const AddphoneNumberAuth = async (dataFrom : addPhoneType,id : number,token : string) => {
+  const response = await axios.put(IP + `/users/update/${id}`,dataFrom, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
 
 export const loginAuth = async (dataFrom : User) => {
   const response = await axios.post(IP + '/login',dataFrom);

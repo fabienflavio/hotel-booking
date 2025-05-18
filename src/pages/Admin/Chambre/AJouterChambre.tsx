@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { AxiosError } from "axios";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useContext, useState } from "react";
 import { DataContext } from "../../../context/DataContext";
@@ -9,16 +8,12 @@ import { addRoms } from "../../../API/Roms";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RoomsType, roomsSchema } from "../../../Validation/Rooms";
 import { ClassType } from "../../../Components/typescript/ClassType";
-import { Error } from "../../../Components/typescript/ErrorResponse";
 type Props = {};
 
 
 export default function AdminAjouterChambre({}: Props) {
   const { token } = useContext(DataContext);
-  const {data} = useQuery(  [,token] , () => fetchClass (token!)); 
-
-console.log(data);  
-  
+  const {data} = useQuery(  [,token] , () => fetchClass (token!));   
   
   const { register, handleSubmit, formState: { errors } } = useForm<RoomsType>({
     resolver : zodResolver(roomsSchema)
@@ -33,17 +28,15 @@ console.log(data);
         queryClient.invalidateQueries('rooms');
         navigate("/AdminChambre");
       },
-      onError: (error: AxiosError<Error>) => {
+      onError: (error: any) => {
         if (error.response && error.response.data) {
           setErrorServer(error.response.data.message);
         } else {
           setErrorServer("An unexpected error occurred");
         }
-        console.error("Error during mutation: ", error);
       }
     }
   );
-
 
   const onSubmit = (formData: RoomsType) => {
     const formDataObj = new FormData();

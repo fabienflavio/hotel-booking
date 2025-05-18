@@ -54,13 +54,12 @@ export default function Login() {
   const mutationGoogle = useMutation( 
     (newUser : any)  =>  loginAuthGoogle(newUser!) , {
       onSuccess: (value) => {
-        setLoaderSubmit(false)
-        console.log(value , "recu par back");
         queryClient.invalidateQueries('users');
+        setLoaderSubmit(false)
         setUser(value.user.id)
-      setRole(value.user.role)
-      setToken(value.token)
-      value.user.role === "admin" ? navigate("/Admin") : navigate("/")
+        setRole(value.user.role)
+        setToken(value.token)
+      value.user.role === "admin" ? navigate("/Admin") : navigate("/add-phone")
     },
     onError: (error : AxiosError<Testa>) => {
       setLoaderSubmit(false)
@@ -82,28 +81,28 @@ export default function Login() {
       googleToken : credentialResponse.credential
     })
 
-
   return (
       <div className="w-full h-screen flex justify-center items-center text-white">
         <img src={ImgBglogin} alt="rooms" className="absolute  h-screen object-cover w-full -z-10 " />
-        <div className="absolute bg-black bg-opacity-60 w-full h-screen -z-10">
-        </div>
+        <div className="absolute bg-black bg-opacity-60 w-full h-screen -z-10"></div>
         <div className="flex justify-center items-center
           lg:justify-end
           ">
-
           <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-sm rounded-3xl p-4 border-2 
             lg:p-16">
             <h1 className="text-3xl my-4  font-bold text-center">Login</h1>
             <DontHaveAccount/>
-            <div className="flex flex-col gap-2 mt-4">
-              <button type="button" className="py-1 px-4 rounded-md bg-white text-black hover:bg-gray-200 "> <BsGoogle  className="inline-block mx-1 "  size={30}/> Continue with Google </button>
-              <div className='container-google'>
-                <GoogleLogin
-                  onSuccess={handleSuccess}
-                  onError={() =>  setErrorServer("Error de Login ") }
-                />
-              </div>
+            <div className=" mt-4 relative">
+              <button type="button" className="block w-full py-1 px-4 rounded-md bg-white text-black hover:bg-gray-200 "> <BsGoogle  className="inline-block mx-1 "  size={30}/> Continue with Google </button>
+                <div className="absolute inset-0 opacity-0 z-10 pointer-events-auto">
+                  <GoogleLogin
+                    onSuccess={handleSuccess}
+                    onError={() => setErrorServer("Erreur de connexion Google")}
+                    theme="filled_black"
+                    text="continue_with"
+                    shape="pill"
+                  />
+                </div>
             </div>
             <div className=" my-8 border-[1px] border-white w-full h-[1px] p-0"> <span className="absolute left-[50%] -translate-x-5 -translate-y-4 px-4 py-1 bg-white text-black">Or</span> </div>
             <p className="text-sm font-light mt-4 text-center">Sign up with your email address</p>

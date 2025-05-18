@@ -43,9 +43,9 @@ export default function ForgetPassword({}: Props) {
   
   const onSubmit = async (formData: User) => {
     setLoaderSubmit(true)
-    console.log(formData);
     mutation.mutate(formData);
-  } 
+  }
+   
   return (
     <div className="w-full h-screen flex justify-center items-center text-white">
         <img src={ImgBglogin} alt="rooms" className="absolute  h-screen object-cover w-full -z-10 " />

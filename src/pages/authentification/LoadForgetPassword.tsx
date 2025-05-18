@@ -12,7 +12,6 @@ export default function LoadForgetPassword({}: Props) {
       <div className="flex justify-center items-center
         lg:justify-end
         ">
-
         <form className="backdrop-blur-sm rounded-3xl p-4 border-2 
           lg:p-16">
           <h1 className="text-4xl font-bold">Confirmation reset password</h1>
@@ -23,7 +22,6 @@ export default function LoadForgetPassword({}: Props) {
             <p className="mt-4 text-end pr-8">You will receive a confirmation email to reset your password</p>
             <p className="font-light text-gray-300 mt-4 text-end pr-8">Please check your inbox</p>
           </div>
-
         </form>
       </div>
     </div>  

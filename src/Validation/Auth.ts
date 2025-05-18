@@ -17,6 +17,9 @@ export const loginSchema = z.object({
 export const forgetPasswordSchema = z.object({
   email: z.string().email("Invalid email address 🔺"),
 });
+export const addPhoneNumberSchema = z.object({
+  phone: z.string().min(1,"phone is required  🔺"),
+});
 export const resetPasswordSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters long 🔺"),
   password_confirmation: z.string().min(8, "Password must be at least 8 characters long 🔺"),
