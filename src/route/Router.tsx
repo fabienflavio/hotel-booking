@@ -79,8 +79,6 @@ import LoadForgetPassword from "../pages/authentification/LoadForgetPassword";
       path: "/Admin",
       element: <PrivateRoute element={AdminAccueil} />,
     },
-
-
     {
       path: "/AdminChambre",
       element: <PrivateRoute element={AdminChambre} />,

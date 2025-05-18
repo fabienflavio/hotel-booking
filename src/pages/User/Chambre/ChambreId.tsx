@@ -14,7 +14,7 @@ import { RoomsOneType } from "../../../Components/typescript/RoomsOneType";
 
 export default function ChambreId() {
   const [dmd,setDmd] = useState("")
-  const { token } = useContext(DataContext);
+  const { token  } = useContext(DataContext);
   const { id  } = useParams<{id : string}>()
   const idParse = parseInt(id!)
   const { data ,isLoading  } = useQuery<RoomsOneType, Error>( ['chambreId',idParse],() => fetchOneId(idParse!));  
@@ -34,7 +34,7 @@ export default function ChambreId() {
         }
         <div className="flex justify-center w-full mt-20">
           <div className="mt-10  flex flex-row justify-between w-[1200px] gap-5 max-[1200px]:flex-col">
-             <CardImage img={data?.room.image} className="h-80"/>
+             <CardImage img={data?.room.image} className="h-96 w-full"/>
               <CardOnlyChambre setDmd={setDmd} Name={data?.room.name}  id={data?.room.id}  prix={data?.room.price} token={token} type={data?.room.class} />
             </div>
         </div>

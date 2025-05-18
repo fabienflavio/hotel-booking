@@ -9,6 +9,7 @@ interface PrivateRouteProps {
 
 const PrivateRouteClient: React.FC<PrivateRouteProps> = ({ element: Element, ...rest }) => {
     const { role, token} = useContext(DataContext);
+    console.log("Context" ,role , token )
     return (role === "default" && token) ? <Element {...rest} /> : <Navigate to="/login" />;
 };
 

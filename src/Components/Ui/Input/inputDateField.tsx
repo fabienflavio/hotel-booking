@@ -1,5 +1,6 @@
 import DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
+import { format } from "date-fns";
 
 type Props = {
     control : any,
@@ -19,13 +20,16 @@ export default function InputDateField( { nameData,label,errors,control} : Props
         <DatePicker
           {...field}
           selected={field.value}
-          onChange={(date) => field.onChange(date)}
+          onChange={(date: any) => {
+            const formattedDate = format(date, "yyyy-MM-dd");
+            field.onChange(formattedDate); 
+          }}          
           minDate={new Date()}
           dateFormat="yyyy-MM-dd"
-          className="h-10 w-96 bg-white rounded-lg pl-2 border-b-4 focus:border-l-4 border-fuchsia-500 outline-none"
+          className="h-10 w-96 bg-gray-200 rounded-lg pl-2 border-b-4 focus:border-l-4 border-black outline-none placeholder:text-white"
         />
       )}
     />
-    {errors && <span className="text-red-500 block">{errors}</span>}
+    {errors && <span className="p-2 text-red-500 ">{errors}</span>}
   </div>  )
 }

@@ -12,6 +12,8 @@ type Props = {
 
 export default function CardOnlyChambre({Name,type,id,prix,token,setDmd}: Props) {
     const navigate = useNavigate();
+    console.log(token,'Token')
+    
   return (
     <div className=" w-[800px] border-[1px] border-gray-200  rounded-3xl py-8 shadow-2xl px-8">      
         <h1 className="text-3xl font-bold text-center " >Porte {Name} </h1>

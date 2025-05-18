@@ -23,11 +23,9 @@ export default function AddPhone({}: Props) {
     
     const navigate = useNavigate();
     const {userId,token} = useContext(DataContext);
+    console.log(userId,token)
 
     const {data : dataUser , isLoading , isError } = useQuery<UsersType>( ["user" ,token] ,  () => getAllUsers(token!)  )
-
-    console.log(dataUser);
-
     const userUpdate = dataUser?.users.find((i)  =>  i.id === userId)
 
     const queryClient = useQueryClient();
