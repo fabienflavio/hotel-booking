@@ -9,7 +9,6 @@ import { Router } from './route/Router.tsx';
 import { loadStripe } from '@stripe/stripe-js';
 import { idClient} from './Secret/Secret.ts';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
 const queryClient = new QueryClient()
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIQUE);
