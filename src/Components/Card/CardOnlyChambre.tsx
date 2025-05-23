@@ -15,7 +15,7 @@ export default function CardOnlyChambre({Name,type,id,prix,token,setDmd}: Props)
     console.log(token,'Token')
     
   return (
-    <div className=" w-[800px] border-[1px] border-gray-200  rounded-3xl py-8 shadow-2xl px-8">      
+    <div className=" lg:w-[800px] w-full border-[1px] border-gray-200  rounded-3xl py-8 shadow-2xl px-8">      
         <h1 className="text-3xl font-bold text-center " >Porte {Name} </h1>
         <div className=" mt-2">
             <p className="text-sm text-gray-500"> <span className="font-bold text-black"> Description </span> : Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quidem, laborum numquam, illum rerum dolorem accusamus modi fugiat incidunt hic, facilis voluptate assumenda! Repellat aspernatur corrupti asperiores quas sapiente dicta!</p>
@@ -32,7 +32,7 @@ export default function CardOnlyChambre({Name,type,id,prix,token,setDmd}: Props)
             </div>
         </div>
 
-        <div className="mt-8" onClick={() => {token === "" ? setDmd("Vous n'etes pas connecter , connecter vous : ") : navigate(`/Reservation/${id}`)
+        <div className=" mt-4 lg:mt-8" onClick={() => {token === "" ? setDmd("Vous n'etes pas connecter , connecter vous : ") : navigate(`/Reservation/${id}`)
             }}>
             <ButtonBase label='Book now'  />
         </div>

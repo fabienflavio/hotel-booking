@@ -1,6 +1,6 @@
 export type Commentaire = {
     id : number ;
-    motif : string ;
-    message : string ;
-    userId ?: number
+    name : string ;
+    email : string ;
+    objet ?: string
 }

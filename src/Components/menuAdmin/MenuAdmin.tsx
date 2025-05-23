@@ -9,7 +9,7 @@ type Props = {
 
 export default function MenuAdmin({setMenu,menu}: Props) {
   return (
-    <>
+    <div className='sticky top-0'>
         <div className="w-[300px] lg:block  hidden ">
             <Header  />
         </div>
@@ -22,6 +22,6 @@ export default function MenuAdmin({setMenu,menu}: Props) {
                     <Header  />
                 </div>
         </div>
-    </>
+    </div>
      )
 }

@@ -20,9 +20,9 @@ export default function Chambre() {
             <HeaderClient />
             <HeaderMenu Header="Rooms & Suites" Image={Image} Menu="Rooms" />
             <div className="w-full flex justify-center h-full mt-32">
-                <div className="w-[1000px]">
+                <div className="max-w-[1200px]">
                    
-                    <div className="flex flex-row justify-start gap-5 flex-wrap border-black ">
+                    <div className="flex flex-row lg:justify-between justify-evenly items-center  gap-5 flex-wrap border-black ">
                         {
                         data?.rooms &&  data.rooms.map((i ) => {
                             return( 

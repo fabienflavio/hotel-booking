@@ -33,7 +33,7 @@ export default function ChambreId() {
             </div>
         }
         <div className="flex justify-center w-full mt-20">
-          <div className="mt-10  flex flex-row justify-between w-[1200px] gap-5 max-[1200px]:flex-col">
+          <div className="mt-10 flex flex-col lg:flex-row justify-between max-w-[1200px] gap-5 ">
              <CardImage img={data?.room.image} className="h-96 w-full"/>
               <CardOnlyChambre setDmd={setDmd} Name={data?.room.name}  id={data?.room.id}  prix={data?.room.price} token={token} type={data?.room.class} />
             </div>

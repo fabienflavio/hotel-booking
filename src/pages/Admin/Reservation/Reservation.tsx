@@ -1,74 +1,66 @@
 import {  useQuery} from "react-query";
-import Header from "../Header/Header";
 import { useContext, useState } from "react";
 import { DataContext } from "../../../context/DataContext";
-import { IoMenuSharp } from "react-icons/io5";
-import { VscChromeClose } from "react-icons/vsc"
-import { fetchReservation } from "../../../Components/fetchData/Reservation";
-import { Reservation } from "../../../Components/typescript/Reservation";
+import { fetchBooks } from "../../../API/Book";
+import { BootAllType } from "../../../Components/typescript/BookAllType";
+import MenuAdmin from "../../../Components/menuAdmin/MenuAdmin";
+import MenuAdminTitle from "../../../Components/menuAdmin/MenuAdminTitle";
+import { FaHome } from "react-icons/fa";
 
 
 export default function AdminReservation() {
     const {token} = useContext(DataContext)
-    const { data: reservations, isLoading: isLoadingReservations } = useQuery<Reservation[]>( ["reservations",token] ,() => fetchReservation(token!));
+    const { data, isLoading } = useQuery<BootAllType>( ["books",token] ,() => fetchBooks(token!));
     const [menu, setMenu] = useState<boolean>(false);
 
-
-    if (isLoadingReservations ) return <div>Loading...</div>;
+    if (isLoading ) return <div>Loading...</div>;
   return (
-    <div className="flex flex-row ">
-            <div className="w-[300px] max-[1500px]:hidden">
-                <Header />
-            </div>
-            <div className="max-[1500px]:block  hidden ">
-                <div className=" absolute z-50 max-[1500px]:mt-2">   
-                    <IoMenuSharp style={{color : "white" }} onClick={() => setMenu(true)} size={40}  className={`cursor-pointer border-4 border-purple-500 bg-purple-500 ${menu ? "hidden" : "" }`}/>{/*  */}  
-                    <VscChromeClose style={{color : "white"}} onClick={() => setMenu(false)} size={40} className={`cursor-pointer border-4 border-white   ${menu ? "" : "hidden" }`}/> {/**/} 
-                </div>
-               <div className={`absolute  z-10 ${menu ? "opacity-100 duration-200" : "opacity-0 duration-200"}`}>
-                    <Header  />
-                </div>
-            </div>
-      <div className="w-full  pt-5   "> 
-          <div className="h-screen mx-20 max-xl:mx-0">
-                <h1 className="bg-Primary-Text te ml-2 text-4xl font-bold text-center">Liste des Reservations</h1>
-                <div>
-                        <div className="mt-4">
-                            <div className="flex flex-row justify-between flex-wrap overflow-scroll">
-                                    <table>
-                                        <thead className="bg-Primary-wh text-white font-bold ">
-                                            <tr className="">
-                                                <td className="px-2 py-2 text-base">Nom d'utilisateur</td>
-                                                <td className="px-2 py-2 text-base">Email</td>
-                                                <td className="px-2 py-2 text-base">N° Telephone</td>
-                                                <td className="px-2 py-2 text-base">Chambre</td>
-                                                <td className="px-2 py-2 text-base">Prix Totale</td>
-                                                <td className="px-2 py-2 text-base">Date d'Entrer</td>
-                                                <td className="px-2 py-2 text-base">Date de Sortie</td>
+    <div className="flex flex-row p-8 bg-slate-200 gap-8">
+        <MenuAdmin menu={menu}  setMenu={setMenu}/>
+            
+            <div className="w-full    ">
+                <MenuAdminTitle menu="Books" />
+                <div className="h-screen mx-20 max-xl:mx-0">
+                        <div>
+                                <div className="mt-8">
+                                    <div className="overflow-auto rounded-lg shadow-md">
+                                        <table className="w-full table-auto border-collapse">
+                                            <thead className=" bg-gradient-to-r from-[#00ccff] to-[#008eb986]  ,    sticky top-0 text-white z-10">
+                                            <tr>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Name</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Email</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Téléphone</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">rooms</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Price (night)</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Total</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Date enter</th>
+                                                <th className="px-4 py-3 text-left text-sm font-semibold">Date end</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                        {
-                                        reservations?.map((i ) => {
-                                            return (
-                                                <tr key={i.id}>
-                                                    {/* <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.username} </td>
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.email } </td>
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.telephone } </td>
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500">Porte {i.chambreID?.name} </td>
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.prixTotal} Ar</td> */}
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.dateEntrer} </td>
-                                                    <td className="bg-white font-normal px-2 py-2 text-sm border-b-4 shadow-md text-gray-500"> {i.dateSortie} </td>
-                                                 
-                                                </tr>)})
-                                        }
-                                        </tbody>
-                                    </table>
-                            </div>                         
+                                            </thead>
+                                            <tbody className="text-gray-700">
+                                            {data?.bookings.map((i : any) => (
+                                                <tr
+                                                key={i.id}
+                                                className="bg-white even:bg-gray-100 hover:bg-cyan-50 transition-colors duration-200"
+                                                >
+                                                <td className="px-4 py-3 text-sm font-light">{i.user.name}</td>
+                                                <td className="px-4 py-3 text-sm">{i.user.email}</td>
+                                                <td className="px-4 py-3 text-base ">{i.user.phone}</td>
+                                                <td className="px-4 py-3 text-lg"> <FaHome className="inline-block text-xs" /> {i.room.name}</td>
+                                                <td className="px-4 py-3 text-sm font-semibold">{i.room.price} $</td>
+                                                <td className="px-4 py-3 text-sm font-bold ">{i.total} $</td>
+                                                <td className="px-4 py-3 text-sm">{i.start_date}</td>
+                                                <td className="px-4 py-3 text-sm">{i.end_date}</td>
+                                                </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                                            
+                                </div>
                         </div>
                 </div>
-          </div>
-      </div>
+            </div>
     </div>
   )
 }

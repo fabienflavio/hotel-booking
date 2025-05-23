@@ -5,8 +5,7 @@ import { ChambreTypeData } from "../../../Components/typescript/chambre";
 import CardChambre from "../../../Components/Card/CardChambre";
 import MenuAdmin from "../../../Components/menuAdmin/MenuAdmin";
 import { useState } from "react";
-import { IoHome } from "react-icons/io5";
-import { MdArrowForwardIos } from "react-icons/md";
+import MenuAdminTitle from "../../../Components/menuAdmin/MenuAdminTitle";
 
 
 export default function AdminChambre() {
@@ -22,13 +21,8 @@ export default function AdminChambre() {
       <div className="flex flex-row justify-between">
         <MenuAdmin menu={menu}  setMenu={setMenu}/>
         <div className="w-full ml-8">
-          <div className="w-full flex flex-row justify-between bg-white p-4 rounded-l-3xl">
-            <div>
-              <p> <IoHome className="inline-block text-[#00CCFF] mr-2 " size={30} /> Home <MdArrowForwardIos className="inline-block mx-1" /> Dashboard </p>
-            </div>
-            <p>Welcome Admin Fabien ,</p>
-            <p>Welcome Admin Fabien ,</p>
-          </div>
+          <MenuAdminTitle menu="Rooms" />
+
           <div className="mt-8">
             <Link to={"/AdminAjouterChambre"} className=" bgPrimaryButton ">+ Ajouter un chambre</Link>
           </div>

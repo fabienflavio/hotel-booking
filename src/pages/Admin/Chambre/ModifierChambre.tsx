@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { FieldError, useForm } from "react-hook-form";
 import { useMutation, useQueryClient, useQuery } from "react-query";
 import { useEffect, useState, useContext } from "react";
 import { DataContext } from "../../../context/DataContext";
@@ -138,7 +138,7 @@ export default function AdminModifierChambre({}: Props) {
                 type="file"
                 className="h-11 w-full bg-gray-200 placeholder:text-black rounded-lg cursor-pointer text-gray-800 py-2"
               />
-              {errors.image_url && (<p className="text-red-500 text-xs">🔺 {errors.image_url?.message}</p>)}
+              {errors.image_url && (<p className="text-red-500 text-xs">🔺 {(errors.image_url as FieldError)?.message}</p>)}
             </div>
 
             <div className="text-center mt-4">

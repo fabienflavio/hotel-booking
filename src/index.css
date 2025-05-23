@@ -49,7 +49,7 @@ input:-webkit-autofill {
 
 .bgPrimaryButton{
     display: inline-block;
-    background-image: linear-gradient(to right ,#00ccff , rgba(0, 142, 185, 0.527) ) ;
+    background-image: linear-gradient(to right ,#00ccff , #008eb986) ;
     color: white;
     padding: 8px 20px;
     border-radius: 8px; 

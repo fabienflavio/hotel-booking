@@ -13,7 +13,6 @@ import { IoHome } from "react-icons/io5";
 import { MdArrowForwardIos } from "react-icons/md";
 type Props = {};
 
-
 export default function AdminAjouterChambre({}: Props) {
   const [menu, setMenu] = useState(false);
   const { token } = useContext(DataContext);
@@ -120,8 +119,10 @@ export default function AdminAjouterChambre({}: Props) {
                 type="file"
                 className="h-11 w-full bg-gray-200 placeholder:text-black rounded-lg cursor-pointer text-gray-800 py-2"
               />
-              {errors.image_url && (<p className="text-red-500 text-xs">🔺 {errors.image_url?.message}</p>)}
-            </div>
+              {typeof errors.image_url?.message === 'string' && (
+                <p className="text-red-500 text-xs">🔺 {errors.image_url.message}</p>
+              )}
+              </div>
 
             <div className="text-center mt-4">
               <input

@@ -7,7 +7,7 @@ import Footer from "../../../Components/footer/Footer";
 import { DataContext } from "../../../context/DataContext";
 import HeaderClient from "../../../Components/header/HeaderClient";
 import CardImage from "../../../Components/Card/CardImage";
-import { addReservation} from "../../../Components/fetchData/Reservation";
+import { addReservation} from "../../../API/Book";
 import { fetchOneId } from "../../../API/Roms";
 import "react-datepicker/dist/react-datepicker.css";
 import Payement from "./Payement";
@@ -78,14 +78,14 @@ export default function Reservations() {
       <HeaderMenu Header="Booking" Image={ImgBook} Menu="book" />
       <div className="mt-10 w-full flex flex-col justify-center items-center">
         {errorServer && <p className="translate-y-12 text-red-600 bg-red-500 bg-opacity-20 text-center font-bold text-xl p-4"> {errorServer} </p>} 
-        <div className="flex gap-5 justify-center items-center rounded-xl min-w-[1200px] mt-32">
+        <div className="flex flex-col lg:flex-row gap-5 justify-center items-center rounded-xl max-w-[1200px] mt-32">
           
-          <div className="w-full gap-4 flex flex-row justify-between items-start border-[1px] border-gray-200 h-80 rounded-2xl p-8 relative">
+          <div className="xl:w-[800px]  lg:w-[600px] sm:w-[600px] w-full  gap-4 flex flex-row justify-between items-start border-[1px] border-gray-200 h-80 rounded-2xl p-8 relative">
             <div className="absolute -translate-y-20">
               <CardImage img={dataChambre?.room.image} className={"w-40 h-40"} />
             </div>
             <div className="absolute right-4 top-0">
-              <h1 className="text-[100px] text-gray-200 font-black "> {dataChambre?.room.name} </h1>
+              <h1 className="sm:text-[100px] text-[70px] text-gray-200 font-black "> {dataChambre?.room.name} </h1>
             </div>
             <div className="mt-28 w-full">
               <div className="flex justify-between w-full">

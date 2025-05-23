@@ -11,7 +11,7 @@ export default function About({}: Props) {
         <HeaderClient />
         <HeaderMenu Header='About Us' Image={ImageAbout} Menu='About' />
         <div className="max-w-[1200px] gap-5 m-auto mt-32 text-center">
-          <div className='border-[30px] rounded-[100px] border-gray-200 h-[450px] flex justify-center items-center px-40'>
+          <div className='border-[30px] rounded-[100px] border-gray-200 h-[450px] flex justify-center items-center px-16 lg:px-40'>
             <div className=' h-[500px] bg-white flex justify-center items-center'>
               <div>
                 <h2 className='text-4xl'> Welcome to seaHotel Booking </h2>
