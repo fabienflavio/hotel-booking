@@ -38,7 +38,10 @@ export default function Login() {
       queryClient.invalidateQueries('users');
       setUser(value.user.id)
       setRole(value.user.role)
-      setToken(value.token)
+      setToken(value.token)        
+      console.log(value.token, 'login');
+
+
       value.user.role === "admin" ? navigate("/Admin") : navigate("/")
     },
     onError: (error : AxiosError<Testa>) => {
@@ -58,7 +61,8 @@ export default function Login() {
         setLoaderSubmit(false)
         setUser(value.user.id)
         setRole(value.user.role)
-        setToken(value.token)        
+        setToken(value.token)    
+            
         if(!value.user.phone){
           value.user.role === "admin" ? navigate("/Admin") : navigate("/add-phone")
         }else {

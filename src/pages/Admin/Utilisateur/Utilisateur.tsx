@@ -15,16 +15,20 @@ type UserMutate = {
 
 export default function AdminUtilisateur({}: Props) {
     const [menu, setMenu] = useState(false);
-    const {token} = useContext(DataContext)
+    const {token} = useContext(DataContext)    
+    console.log(token , "token user")
+
     const {data,isLoading , isError} = useQuery<UsersType>("users" , () => getAllUsers(token!)  )
     const queryClient = useQueryClient()
     const mutation = useMutation(
         ({newUser,id} : UserMutate ) => EditUser(newUser,id,token!),{
-            onSuccess(){
+            onSuccess(value){
                 queryClient.invalidateQueries("users")
+                console.log(value)
             },
-            onError(){
-
+            onError(error){
+                console.log(error);
+                
             }
         }
     )    
@@ -60,8 +64,8 @@ export default function AdminUtilisateur({}: Props) {
                                 <div className='w-full text-end'>
                                     <h1>Changer le role</h1>
                                     {
-                                        user.role === "User" ? <button onClick={ () => HandleRole(user.id!,"Admin") } className='px-4 py-2 bg-white shadow-lg  rounded-xl hover:scale-105 '><span className='bg-Primary-Text'>Admin</span> </button> : <button 
-                                        onClick={ () => HandleRole(user.id!,"User") } 
+                                        user.role === "default" ? <button onClick={ () => HandleRole(user.id!,"admin") } className='px-4 py-2 bg-white shadow-lg  rounded-xl hover:scale-105 '><span className='bg-Primary-Text'>Admin</span> </button> : <button 
+                                        onClick={ () => HandleRole(user.id!,"default") } 
                                         className='px-4 py-2 bg-white shadow-lg  rounded-xl hover:scale-105 '><span 
                                         className='bg-Primary-Text'> User </span></button>
                                     }

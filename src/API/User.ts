@@ -13,10 +13,12 @@ export const getAllUsers = async (token : string) => {
 }
 
 export const EditUser = async (newUser: User,id : number,token: string) => {
-    const response = await axios.put( IP + "/users/" + id , newUser , {
+    console.log("token user",token)
+    const response = await axios.put( IP + "/users/update/" + id , newUser , {
         headers: {
             authorization: `Bearer ${token}`
         }
     });
+    console.log(response , "Response")
     return response.data
 };

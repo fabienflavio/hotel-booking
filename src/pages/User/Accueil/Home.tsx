@@ -13,8 +13,8 @@ export default function Home() {
             <div className="relative h-[400px] lg:h-[700px] text-white">
                 <div className="flex justify-center items-center absolute w-full h-full bg-black bg-opacity-50 top-0 left-0 z-10">
                     <div  className="shadow-2xl lg:py-20 py-8 w-[1200px] backdrop-blur-lg bg-black bg-opacity-25 rounded-[80px]">
-                        <h1 className="lg:leading-[3.5rem] px-8 lg:px-40 text-center text-2xl lg:text-5xl font-bold">Explore and make your dreams come true with our SeaHotel</h1>
-                        <p className="lg:px-80 lg:mt-8  px-8 mt-4 text-center text-xs">There are many variations of the passages of lorem Ipsum fromavailable,variations of the passages.</p>
+                        <h1 className="lg:leading-[3.5rem] px-8 lg:px-40 text-center text-2xl lg:text-5xl font-bold">Explore and make your dreams come true with our Mayana Hotel</h1>
+                        <p className="lg:px-80 lg:mt-8  px-8 mt-4 text-center lg:text-base text-xs">There are many variations of the passages of lorem Ipsum fromavailable,variations of the passages.</p>
                         <div className="text-center mt-8">
                             <ButtonBase label="Book Your Stay" />
                         </div>

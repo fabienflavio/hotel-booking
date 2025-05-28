@@ -32,7 +32,7 @@ export default function CardChambre({id,Name,type,prix,img}: Props) {
     )
   return (
     <div key={id} className="shadow-xl rounded-2xl bg-white w-96 pb-8 mb-4 cursor-pointer  ">
-        <img className="rounded-t-xl  object-cover h-40 w-full" src={`${"http://127.0.0.1:8000" + '/' + img}`} alt={`${"http://127.0.0.1:8000" + '/' + img}`} />
+        <img className="rounded-t-xl  object-cover h-40 w-full" src={`${"https://mayana-0c37186d4f88.herokuapp.com" + '/' + img}`} alt={`${"https://mayana-0c37186d4f88.herokuapp.com" + '/' + img}`} />
         <div className="flex justify-between ml-4 mt-4 border-l-2 border-black px-4">
             <div>
                 <h1 className="text-xl font-bold">Porte {Name}</h1>
